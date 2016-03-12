@@ -17,11 +17,15 @@ public class Inventaris {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        Date a = new Date();
-        Barang b = new Barang("tes","101");
-        //b.setTglMasuk(a);
-        System.out.println(b.getTglMasuk().getDate()+" "+b.getTglMasuk().getMonth()+" "+(1900+b.getTglMasuk().getYear()));
-    }
-    
+        Gudang g = new Gudang(100);
+        Penyedia penyedia = new Penyedia("Iqbal",130,"iqbal123");
+        Petugas petugas = new Petugas("Prasas",130114,"prasas123");
+        penyedia.createBarang("Kursi","111",10,true);
+        penyedia.createBarang("Proyektor","222", 5, true);
+        petugas.catatBarang(penyedia.getBarang(0), g);
+        petugas.catatBarang(penyedia.getBarang(1), g);
+        petugas.editBarang(g, 0, 20);
+        petugas.editBarang(g, 1, "tidak bagus");
+        petugas.tampilinfoAll(g);
+    }    
 }
